@@ -3,18 +3,34 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+trigger: none
 
 pool:
   name: Default
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+parameters:
+  - name: name
+    displayName: Enter name
+    type: string
+  - name: file
+    displayName: Enter file name
+    type: string
+stages:
+  - stage: tfinstallvalidate
+    
+    jobs:
+      - job: validate
+        continueOnError: false
+        steps: 
+         - task: TerraformInstaller@1
+           displayName: tfinstall
+           inputs:
+             terraformVersion: 'latest'
+         - script: |
+             echo Add other tasks to build, test, and deploy your project.
+             echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
+             echo "name=${{parameters.name}}" >> ${{parameters.file}}
+             ls -lart
+             cat ${{parameters.file}}
+           displayName: 'Run a multi-line script'
