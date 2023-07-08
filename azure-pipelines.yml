@@ -31,7 +31,6 @@ stages:
             terraformVersion: 'latest'
         - script: |
              git config --global user.email "vabby@vyconsultants.com.au" & git config --global user.name "Vabby Pipeline"
-             workingDirectory: $(System.DefaultWorkingDirectory)
         - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
@@ -41,4 +40,4 @@ stages:
              git add -A
              git commit -m "deployment $(Build.BuildNumber)"
              git push --set-upstream origin HEAD:main
-             displayName: 'Run a multi-line script'
+          displayName: 'Run a multi-line script'
