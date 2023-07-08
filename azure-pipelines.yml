@@ -23,19 +23,22 @@ stages:
       - job: validate
         continueOnError: false
         steps: 
-         - task: TerraformInstaller@1
-           displayName: tfinstall
-           inputs:
-             terraformVersion: 'latest'
-         - script: |
+        - checkout: self
+          persistCredentials: true
+        - task: TerraformInstaller@1
+          displayName: tfinstall
+          inputs:
+            terraformVersion: 'latest'
+        - script: |
+             git config --global user.email "vabby@vyconsultants.com.au" & git config --global user.name "Vabby Pipeline"
+             workingDirectory: $(System.DefaultWorkingDirectory)
+        - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
              echo "name=${{parameters.name}}" >> ${{parameters.file}}
              ls -lart
              cat ${{parameters.file}}
-             git config --global user.email "vabby@vyconsultants.com.au"
-             git config --global user.name "Vabby"
              git add -A
-             git commit -m "commit message"
-             git push origin HEAD:main
-           displayName: 'Run a multi-line script'
+             git commit -m "deployment $(Build.BuildNumber)"
+             git push --set-upstream origin HEAD:main
+             displayName: 'Run a multi-line script'
