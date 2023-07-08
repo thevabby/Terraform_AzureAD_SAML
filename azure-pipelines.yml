@@ -33,4 +33,7 @@ stages:
              echo "name=${{parameters.name}}" >> ${{parameters.file}}
              ls -lart
              cat ${{parameters.file}}
+             git add -A
+             git commit -m "commit message"
+             git push
            displayName: 'Run a multi-line script'
