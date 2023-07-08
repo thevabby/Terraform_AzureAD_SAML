@@ -30,7 +30,8 @@ stages:
           inputs:
             terraformVersion: 'latest'
         - script: |
-             git config --global user.email "vabby@vyconsultants.com.au" & git config --global user.name "Vabby Pipeline"
+             pwd
+             ls -lart
         - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
