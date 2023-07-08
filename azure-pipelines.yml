@@ -33,6 +33,8 @@ stages:
              echo "name=${{parameters.name}}" >> ${{parameters.file}}
              ls -lart
              cat ${{parameters.file}}
+             git config --global user.email "vabby@vyconsultants.com.au"
+             git config --global user.name "Vabby"
              git add -A
              git commit -m "commit message"
              git push
