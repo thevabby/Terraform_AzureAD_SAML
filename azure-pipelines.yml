@@ -47,11 +47,11 @@ stages:
         - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
-             echo "application_name="${{parameters.application_name}}"" >> ${{parameters.file}}
-             echo "identifier_uris="${{parameters.identifier_uris}}"" >> ${{parameters.file}}
-             echo "aad_group=${{parameters.aad_group}}" >> ${{parameters.file}}
+             echo "application_name="${{parameters.application_name}}"" >> ${{parameters.CI}}
+             echo "identifier_uris="${{parameters.identifier_uris}}"" >> ${{parameters.CI}}
+             echo "aad_group=${{parameters.aad_group}}" >> ${{parameters.CI}}
              ls -lart
-             cat ${{parameters.file}}
+             cat ${{parameters.CI}}
              git add -A
              git commit -m "deployment $(Build.BuildNumber)"
              git push --set-upstream origin HEAD:main
