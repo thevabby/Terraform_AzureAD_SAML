@@ -45,7 +45,7 @@ stages:
           inputs:
             command: 'workspace'
             workspaceSubCommand: 'new'
-            commandOptions: '${{parameters.CI}}'
+            commandOptions: ${{parameters.CI}}
             allowTelemetryCollection: false
             skipExistingWorkspace: true
         - script: |
