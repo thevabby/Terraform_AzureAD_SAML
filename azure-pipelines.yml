@@ -47,7 +47,6 @@ stages:
              echo "name=${{parameters.name}}" >> ${{parameters.file}}
              echo "identifier=${{parameters.identifier}}" >> ${{parameters.file}}
              echo "aad_group=${{parameters.aad_group}}" >> ${{parameters.file}}
-             
              ls -lart
              cat ${{parameters.file}}
              git add -A
