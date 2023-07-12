@@ -37,7 +37,7 @@ stages:
         steps: 
         - checkout: self
           persistCredentials: true
-        - task: TerraformInstaller@1
+        - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@1
           displayName: tfinstall
           inputs:
             terraformVersion: 'latest'
