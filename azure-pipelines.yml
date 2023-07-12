@@ -41,6 +41,13 @@ stages:
           displayName: tfinstall
           inputs:
             terraformVersion: 'latest'
+        - task: TerraformCLI@0
+          inputs:
+            command: 'workspace'
+            workspaceSubCommand: 'new'
+            commandOptions: '${{parameters.CI}}'
+            allowTelemetryCollection: false
+            skipExistingWorkspace: true
         - script: |
              pwd
              ls -lart
