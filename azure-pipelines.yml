@@ -16,6 +16,15 @@ parameters:
   - name: file
     displayName: Enter file name
     type: string
+  - name: identifier
+    displayName: Enter identifier name
+    type: string
+  - name: appName
+    displayName: Enter appName name
+    type: string
+  - name: aad_group
+    displayName: Enter aad_group name
+    type: string
 stages:
   - stage: tfinstallvalidate
     
@@ -36,6 +45,9 @@ stages:
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
              echo "name=${{parameters.name}}" >> ${{parameters.file}}
+             echo "identifier=${{parameters.identifier}}" >> ${{parameters.file}}
+             echo "aad_group=${{parameters.aad_group}}" >> ${{parameters.file}}
+             
              ls -lart
              cat ${{parameters.file}}
              git add -A
