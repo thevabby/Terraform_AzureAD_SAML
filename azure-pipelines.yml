@@ -13,13 +13,16 @@ parameters:
   - name: name
     displayName: Enter name
     type: string
-  - name: file
-    displayName: Enter file name
+  - name: redirect_uris
+    displayName: Enter redirect_uris name
     type: string
-  - name: identifier
+  - name: CI
+    displayName: Enter CI name
+    type: string
+  - name: identifier_uris
     displayName: Enter identifier name
     type: string
-  - name: appName
+  - name: application_name
     displayName: Enter appName name
     type: string
   - name: aad_group
@@ -44,8 +47,8 @@ stages:
         - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}} "succesfully triggered this build from a REST API call"
-             echo "name=${{parameters.name}}" >> ${{parameters.file}}
-             echo "identifier=${{parameters.identifier}}" >> ${{parameters.file}}
+             echo "application_name=${{parameters.application_name}}" >> ${{parameters.file}}
+             echo "identifier_uris=${{parameters.identifier_uris}}" >> ${{parameters.file}}
              echo "aad_group=${{parameters.aad_group}}" >> ${{parameters.file}}
              ls -lart
              cat ${{parameters.file}}
