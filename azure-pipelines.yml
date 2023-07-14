@@ -27,13 +27,6 @@ parameters:
   - name: aad_group
     displayName: Enter aad_group name
     type: string
-
-resources:
-  repositories:
-  - repository: IAM_Azure_SSO_Automation 
-    type: git
-    name: IAM_Azure_SSO_Automation
-    ref: main
 stages:
   - stage: tfinstallvalidate
     jobs:
