@@ -76,4 +76,9 @@ stages:
         - script: |
              terraform init
           displayName: 'Init'
-
+        - script: |
+             terraform validate
+          displayName: 'Validate'
+        - script: |
+             terraform plan
+          displayName: 'Plan'
