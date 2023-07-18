@@ -50,7 +50,7 @@ stages:
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}}" succesfully triggered this build from a REST API call"
              echo "application_name=\"${{parameters.application_name}}\"" >> ${{parameters.CI}}.tfvars
-             echo "identifier_uris=[\"${{parameters.identifier_uris}}\"]x" >> ${{parameters.CI}}.tfvars
+             echo "identifier_uris=[\"${{parameters.identifier_uris}}\"]" >> ${{parameters.CI}}.tfvars
              echo "aad_group=\"${{parameters.aad_group}}\"" >> ${{parameters.CI}}.tfvars
              echo "redirect_uris=[\"${{parameters.redirect_uris}}\"]" >> ${{parameters.CI}}.tfvars
              ls -lart
