@@ -12,3 +12,7 @@ output "azuread_application_display_name" {
 output "metadata" {
   value = "https://login.microsoftonline.com/${data.azuread_client_config.current.tenant_id}/federationmetadata/2007-06/federationmetadata.xml?appid=${azuread_application.application.application_id}"
 }
+
+output "object_id" {
+  value = data.azuread_client_config.current.object_id
+}
