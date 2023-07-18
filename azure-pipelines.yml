@@ -111,5 +111,5 @@ stages:
              echo $ARM_TENANT_ID
              echo $ARM_CLIENT_SECRET
              echo "-----------------------------------333"
-             terraform apply
+             terraform apply -auto-approve
           displayName: 'Apply'
