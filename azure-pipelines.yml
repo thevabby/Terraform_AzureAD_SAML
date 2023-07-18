@@ -49,10 +49,10 @@ stages:
         - script: |
              echo Add other tasks to build, test, and deploy your project.
              echo ${{parameters.name}}" succesfully triggered this build from a REST API call"
-             echo "application_name=\"${{parameters.application_name}}\"" >> ${{parameters.CI}}
-             echo "identifier_uris=[\"${{parameters.identifier_uris}}\"]" >> ${{parameters.CI}}
-             echo "aad_group=\"${{parameters.aad_group}}\"" >> ${{parameters.CI}}
-             echo "redirect_uris=[\"${{parameters.redirect_uris}}\"]" >> ${{parameters.CI}}
+             echo "application_name=\"${{parameters.application_name}}\"" >> ${{parameters.CI}}.tfvars
+             echo "identifier_uris=[\"${{parameters.identifier_uris}}\"]x" >> ${{parameters.CI}}.tfvars
+             echo "aad_group=\"${{parameters.aad_group}}\"" >> ${{parameters.CI}}.tfvars
+             echo "redirect_uris=[\"${{parameters.redirect_uris}}\"]" >> ${{parameters.CI}}.tfvars
              ls -lart
              cat ${{parameters.CI}}
              git config user.email "vabby@vyconsultants.com.au"
@@ -74,12 +74,12 @@ stages:
              export ARM_CLIENT_SECRET=$(CLIENT_SECRET)
              export ARM_SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
              export ARM_TENANT_ID=$(TENANT_ID)
-             terraform plan
+             terraform plan --var-file=${{parameters.CI}}.tfvars -out=${{parameters.CI}}.out
           displayName: 'Plan'
         - script: |
              export ARM_CLIENT_ID=$(CLIENT_ID)
              export ARM_CLIENT_SECRET=$(CLIENT_SECRET)
              export ARM_SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
              export ARM_TENANT_ID=$(TENANT_ID)
-             terraform apply -auto-approve
+             terraform apply ${{parameters.CI}}.out -auto-approve
           displayName: 'Apply'
