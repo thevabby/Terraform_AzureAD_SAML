@@ -70,6 +70,9 @@ stages:
              echo $ARM_TENANT_ID
              echo $ARM_CLIENT_SECRET
              echo %CLIENT_ID%
+             echo %SUBSCRIPTION_ID%
+             echo %TENANT_ID%
+             echo %CLIENT_SECRET%
           displayName: 'Set Env'
         - script: |
              terraform init
@@ -88,3 +91,6 @@ stages:
              echo $ARM_CLIENT_SECRET
              terraform plan
           displayName: 'Plan'
+        - script: |
+             terraform apply
+          displayName: 'Apply'
