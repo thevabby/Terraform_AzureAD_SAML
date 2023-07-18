@@ -100,11 +100,13 @@ stages:
              echo $(SUBSCRIPTION_ID)
              echo $(TENANT_ID)
              echo $(CLIENT_SECRET)
+             echo $(test_var)
              echo "-----------------------------------111"
              echo ${{ variables.CLIENT_ID }}
              echo ${{ variables.SUBSCRIPTION_ID }}
              echo ${{ variables.TENANT_ID }}
              echo ${{ variables.CLIENT_SECRET }}
+             echo ${{ variables.test_var }}
              echo "-----------------------------------222"
              echo $ARM_CLIENT_ID
              echo $ARM_SUBSCRIPTION_ID
