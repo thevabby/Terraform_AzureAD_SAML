@@ -81,37 +81,16 @@ stages:
              terraform validate
           displayName: 'Validate'
         - script: |
-             export ARM_CLIENT_ID="f31bed50-c132-4dc1-bafb-c76758297304"
-             export ARM_CLIENT_SECRET="v3e8Q~0bMzbF76eHjmhJmlpXu_Z~ODmPRm.2Mb6y"
-             export ARM_SUBSCRIPTION_ID="5c5cbbf6-f3fc-47a2-8f66-5b9a2d4f01ae"
-             export ARM_TENANT_ID="9595ba37-989b-44d1-8b01-e08c12a976a7"
-             echo $ARM_CLIENT_ID
-             echo $ARM_SUBSCRIPTION_ID
-             echo $ARM_TENANT_ID
-             echo $ARM_CLIENT_SECRET
+             export ARM_CLIENT_ID=$(CLIENT_ID)
+             export ARM_CLIENT_SECRET=$(CLIENT_SECRET)
+             export ARM_SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
+             export ARM_TENANT_ID=$(TENANT_ID)
              terraform plan
           displayName: 'Plan'
         - script: |
-             export ARM_CLIENT_ID="f31bed50-c132-4dc1-bafb-c76758297304"
-             export ARM_CLIENT_SECRET="v3e8Q~0bMzbF76eHjmhJmlpXu_Z~ODmPRm.2Mb6y"
-             export ARM_SUBSCRIPTION_ID="5c5cbbf6-f3fc-47a2-8f66-5b9a2d4f01ae"
-             export ARM_TENANT_ID="9595ba37-989b-44d1-8b01-e08c12a976a7"
-             echo $(CLIENT_ID)
-             echo $(SUBSCRIPTION_ID)
-             echo $(TENANT_ID)
-             echo $(CLIENT_SECRET)
-             echo $(test_var)
-             echo "-----------------------------------111"
-             echo ${{ variables.CLIENT_ID }}
-             echo ${{ variables.SUBSCRIPTION_ID }}
-             echo ${{ variables.TENANT_ID }}
-             echo ${{ variables.CLIENT_SECRET }}
-             echo ${{ variables.test_var }}
-             echo "-----------------------------------222"
-             echo $ARM_CLIENT_ID
-             echo $ARM_SUBSCRIPTION_ID
-             echo $ARM_TENANT_ID
-             echo $ARM_CLIENT_SECRET
-             echo "-----------------------------------333"
+             export ARM_CLIENT_ID=$(CLIENT_ID)
+             export ARM_CLIENT_SECRET=$(CLIENT_SECRET)
+             export ARM_SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
+             export ARM_TENANT_ID=$(TENANT_ID)
              terraform apply -auto-approve
           displayName: 'Apply'
