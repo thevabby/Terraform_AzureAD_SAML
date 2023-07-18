@@ -13,21 +13,6 @@ parameters:
   - name: name
     displayName: Enter name
     type: string
-  - name: redirect_uris
-    displayName: Enter redirect_uris name
-    type: string
-  - name: CI
-    displayName: Enter CI name
-    type: string
-  - name: identifier_uris
-    displayName: Enter identifier name
-    type: string
-  - name: application_name
-    displayName: Enter appName name
-    type: string
-  - name: aad_group
-    displayName: Enter aad_group name
-    type: string
 stages:
   - stage: tfinstallvalidate
     jobs:
