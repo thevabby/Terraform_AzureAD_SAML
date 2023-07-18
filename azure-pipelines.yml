@@ -64,17 +64,6 @@ stages:
              git push --set-upstream origin HEAD:main
           displayName: 'Run a multi-line script'
         - script: |
-             ls -lart
-             echo $ARM_CLIENT_ID
-             echo $ARM_SUBSCRIPTION_ID
-             echo $ARM_TENANT_ID
-             echo $ARM_CLIENT_SECRET
-             echo %CLIENT_ID%
-             echo %SUBSCRIPTION_ID%
-             echo %TENANT_ID%
-             echo %CLIENT_SECRET%
-          displayName: 'Set Env'
-        - script: |
              terraform init
           displayName: 'Init'
         - script: |
