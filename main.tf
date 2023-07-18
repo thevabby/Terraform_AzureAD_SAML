@@ -14,7 +14,7 @@ resource "azuread_application" "application" {
   display_name            = var.application_name
   identifier_uris         = var.identifier_uris
   sign_in_audience        = "AzureADMyOrg"
-  prevent_duplicate_names = true
+  prevent_duplicate_names = false
 
   web {
     redirect_uris = var.redirect_uris
