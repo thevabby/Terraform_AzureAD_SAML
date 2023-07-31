@@ -10,7 +10,7 @@ pool:
   name: Default
 
 parameters:
-  - name: name
+  - name: app name
     displayName: Enter name
     type: string
   - name: redirect_uris
