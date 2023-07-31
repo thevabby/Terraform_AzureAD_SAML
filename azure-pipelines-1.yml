@@ -22,8 +22,5 @@ stages:
         - checkout: self
           persistCredentials: true
         - script: |
-             pwd
-             ls -lart
-        - script: |
              echo Add other tasks to build, test, and deploy your project.
-             echo $(parameters.app name)" succesfully triggered this build from a REST API call"
+             echo ${{parameters.app name}}" succesfully triggered this build from a REST API call"
