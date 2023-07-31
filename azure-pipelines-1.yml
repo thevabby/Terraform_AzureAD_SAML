@@ -3,17 +3,27 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+trigger: none
 
 pool:
   vmImage: ubuntu-latest
+  name: Default
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+parameters:
+  - name: app name
+    displayName: Enter name
+    type: string
+stages:
+  - stage: tfinstallvalidate
+    jobs:
+      - job: validate
+        continueOnError: false
+        steps: 
+        - checkout: self
+          persistCredentials: true
+        - script: |
+             pwd
+             ls -lart
+        - script: |
+             echo Add other tasks to build, test, and deploy your project.
+             echo $(parameters.app name)" succesfully triggered this build from a REST API call"
